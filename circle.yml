@@ -11,3 +11,10 @@ dependencies:
 test:
   override:
     - echo "no test"
+deployment:
+  master:
+    branch: master
+    commands:
+      - docker login -u kevinsimper -p $DOCKER_PASSWORD -e kevin.simper@gmail.com
+      - docker tag devopstest_web kevinsimper/devopstest
+      - docker push kevinsimper/devopstest
